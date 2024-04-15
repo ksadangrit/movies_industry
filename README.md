@@ -160,3 +160,7 @@ We'll determine the mode of all values in the `rating` column by following these
 ![Screen Shot 2024-04-12 at 1 54 10 PM](https://github.com/ksadangrit/Movies/assets/156267785/300a7e97-42fc-46ac-b12e-3f2c84e9d592)
 
 The result shows that "R" is the most common rating and is the mode from the `rating` column. We'll replace all the blank cells in this column with "R" using the Find and Replace option, the same way we did earlier.
+
+### Calculations and Analysing
+
+

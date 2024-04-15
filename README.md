@@ -162,6 +162,31 @@ We'll determine the mode of all values in the `rating` column by following these
 
 The result shows that "R" is the most common rating and is the mode from the `rating` column. We'll replace all the blank cells in this column with "R" using the Find and Replace option, the same way we did earlier.
 
-### Calculations and Analysing
+## Calculations and Analysing
+### Decades
+#### Creating a decade column
+- We’ll add a decade column next to `year` by right-clicking on the 'year' column.
+- Select 'Insert 1 column right.'
+- Name the new column 'Decade' in cell E2.
+- Enter the formula '=INT(D2/10)*10' in cell E2.
+- Double-click on the blue filter button to apply the formula to the entire column.
+
+#### Revenues by decade
+We'll create a pivot table to summarize average revenue, total revenue, minimum, and maximum revenue by decade, taking into account that the 2020s decade only includes the year 2020.
+![Screen Shot 2024-04-15 at 4 45 37 PM](https://github.com/ksadangrit/movies/assets/156267785/88d96289-1453-47aa-a934-5a4756e20c15)
+- Highlight all the columns.
+- Select 'Insert' → 'Pivot table' → 'New sheet'.
+- Drag ‘decade' into the 'Rows' section. Under 'Summarized by', select 'COUNT'.
+- Drag 'name' into the 'Values' section four times. For each instance, select 'AVERAGE', 'SUM', 'MIN', and 'MAX' under 'Summarized by'.
+- Apply conditional formatting to the 'Total revenue' and 'MAX of revenue' columns. Choose a gradient from white to deep orange, with deeper colors indicating higher values, to visually highlight and differentiate the range of values.
+
+#### Finding movies with highest revenue for each decade
+The movie names from the movie sheet are in the leftmost column, so the VLOOKUP function can't be used. Instead, we’ll utilize INDEX and MATCH functions for this task.
+- Input the formula `=INDEX(movies!A:A, MATCH(F2, movies!N:N, 0))` in cell F2.
+- Double-click the blue button to autofill the remaining cells.
+![Screen Shot 2024-04-15 at 5 03 22 PM](https://github.com/ksadangrit/movies/assets/156267785/ecf99fc4-12c8-4c39-b92e-54161f5b0ebe)
+
+
+
 
 

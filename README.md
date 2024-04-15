@@ -23,7 +23,7 @@ Belows are the list of all columns:
 * `country` (txt): Country of origin
 * `director` (txt): The director
 * `genre` (txt): Main genre of the movie.
-* `gross` (num): Revenue of the movie
+* `revenue` (num): Revenue of the movie
 * `name` (txt): Name of the movie
 * `rating` (txt): Rating of the movie (R, PG, etc.)
 * `released` (txt): Release date (YYYY-MM-DD)
@@ -51,7 +51,8 @@ The data type was confirmed by using the =ISNUMBER() and =ISTEXT() functions.
 4. Compare movie performance metrics across various countries to discern regional preferences and trends.
 
 ## Cleaning the data
-- Freeze the header row and make it bold to make it easier to examine the data. 
+- Freeze the header row and make it bold to make it easier to examine the data.
+- Rename the `gross` column to `revenue` for clarity and to avoid confusion.
 - Remove whitespaces in all rows and columns by using the built-in function located under Data → Data cleanup → Trim whitespace. Then, ensure consistency in horizontal alignment by adjusting as needed to maintain uniformity. Align all number columns to the right and align the text columns to the left.
 
 ### Check for duplicates
@@ -83,15 +84,15 @@ In a new cell, use the` =SUBTOTAL(3, A:A)` formula to find out how many rows are
 * `star` : 0.01% missing (1 row with missing data)
 * `country` : 0.04% missing (3 rows with missing data)
 * `budget` : 28% missing (2171 rows with missing data)
-* `gross` : 2.47% missing (189 rows with missing data)
+* `revenue` : 2.47% missing (189 rows with missing data)
 * `company` : 0.22% missing (17 rows with missing data)
 * `runtime` : 0.05% missing (4 rows with missing data)
 
-For columns where missing values constitute less than 1% of the data, I plan to drop rows containing those missing values. Given that many of these rows have multiple missing values, particularly in important columns like budget and gross, their removal is unlikely to lead to misleading conclusions as they are relatively insignificant.
+For columns where missing values constitute less than 1% of the data, I plan to drop rows containing those missing values. Given that many of these rows have multiple missing values, particularly in important columns like `budget` and `revenue`, their removal is unlikely to lead to misleading conclusions as they are relatively insignificant.
 
-However, in the case of the `budget` column, which has over 28% of values missing, further investigation is warranted. We will explore whether these missing values are evenly distributed among genres or if they are more prevalent in certain genres. Additionally, we will analyze the gross earnings of these movies to understand their potential impact on our findings. 
+However, in the case of the `budget` column, which has over 28% of values missing, further investigation is warranted. We will explore whether these missing values are evenly distributed among genres or if they are more prevalent in certain genres. Additionally, we will analyze the revenue earnings of these movies to understand their potential impact on our findings. 
 
-Similarly, although the `rating` column has just around 1% of rows with missing values, many of these movies have high gross earnings, which could significantly affect our overall data if we were to drop them. Therefore, we will explore alternative solutions for handling missing values in this column.
+Similarly, although the `rating` column has just around 1% of rows with missing values, many of these movies have high revenue earnings, which could significantly affect our overall data if we were to drop them. Therefore, we will explore alternative solutions for handling missing values in this column.
 
 ### Dropping rows 
 I'll go through each column, excluding those with no missing values and those requiring further investigation as mentioned, and proceed with the following steps:
@@ -116,9 +117,9 @@ To identify the number of rows with missing budget values for different genres, 
 
 It's noticeable that in certain genres with only a few movies, the absence of budget data constitutes 100% of the entries. However, even in genres with thousands of movies, the percentage of entries with missing budget data ranges from 16% to 42%. These percentages are significant, indicating that the lack of budget data isn't limited to specific genres. 
 
-Furthermore, when examining the gross earnings from the rows with missing budget values, it becomes evident that over half of them generate revenue exceeding $1 million, with some top movies generating close to $1 billion. These figures are substantial, highlighting that eliminating movies with missing values would result in misleading conclusions. Therefore, the best approach for handling these missing values is to impute them.
+Furthermore, when examining the revenue earnings from the rows with missing budget values, it becomes evident that over half of them generate revenue exceeding $1 million, with some top movies generating close to $1 billion. These figures are substantial, highlighting that eliminating movies with missing values would result in misleading conclusions. Therefore, the best approach for handling these missing values is to impute them.
 
-We'll also impute the missing values in the `gross` column, even though they only account for 2.47% of the dataset. This will be beneficial for our analysis to do so as these columns are typically used together for calculations and analyses, particularly in assessing profitability.
+We'll also impute the missing values in the `revenue` column, even though they only account for 2.47% of the dataset. This will be beneficial for our analysis to do so as these columns are typically used together for calculations and analyses, particularly in assessing profitability.
 
 ### Creating a box plot for data distribution:
 We'll construct a box plot based on the five-number summary. Although Google Sheets doesn't require the median for a box plot, we'll calculate both the mean and median for comparison.
@@ -134,11 +135,11 @@ Based on the resulting plot, we observe a right or bottom skew in the data, indi
 
 **Imputation Method:** In this scenario, imputing missing data with **the median** is more appropriate. The median is less sensitive to outliers and provides a more robust measure in the presence of skewness, offering a better reflection of the typical budget for movies in the dataset.
 
-We'll repeat steps 1 to 5 for the `gross` column to determine the most appropriate imputation method.
+We'll repeat steps 1 to 5 for the `revenue` column to determine the most appropriate imputation method.
 
 ![Screen Shot 2024-04-12 at 11 35 58 AM](https://github.com/ksadangrit/Movies/assets/156267785/74aa23a7-3fe0-41fd-807d-9adf60534b82)
 
-The plot shows a similar pattern to the budget plot, indicating a pronounced right skew caused by a handful of movies with exceptionally high grosses. The maximum gross exceeds $2.8 billion, and the mean exceeds the median by over $50 million. Therefore, the most suitable approach for imputing missing values is to use the median.
+The plot shows a similar pattern to the budget plot, indicating a pronounced right skew caused by a handful of movies with exceptionally high revenues. The maximum revenue exceeds $2.8 billion, and the mean exceeds the median by over $50 million. Therefore, the most suitable approach for imputing missing values is to use the median.
 
 We'll replace all blank cells in the `budget` column with the median value, which is $21,000,000, by following these steps:
 
@@ -149,7 +150,7 @@ We'll replace all blank cells in the `budget` column with the median value, whic
 - Enter the median value to replace with.
 - Select 'Replace all'.
 
-We'll repeat the same process to replace blank cells in the `gross` column with $20,240,315.
+We'll repeat the same process to replace blank cells in the `revenue` column with $20,240,315.
 
 ### Replacing blank cells in the `rating` column with the mode
 We'll determine the mode of all values in the `rating` column by following these steps:

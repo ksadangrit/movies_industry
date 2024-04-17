@@ -34,7 +34,7 @@ Belows are the list of all columns:
 * `writer` (txt): Writer of the movie
 * `year` (num): Year of release
 
-The data type was confirmed by using the =ISNUMBER() and =ISTEXT() functions.
+The data type was confirmed by using the `=ISNUMBER()` and `=ISTEXT()` functions.
 
 ### Questions
 1. What are the highest-earning movies ever, and how has their performance changed over time?
@@ -197,7 +197,7 @@ The movie names from the movie sheet are in the leftmost column, so the VLOOKUP 
 - Notable top-grossing films include "E.T.," "Titanic," "Avatar," "Avengers: Endgame," and "The Eight Hundred" for the 1980s, 1990s, 2000s, 2010s, and 2020s, respectively.
 - While it may appear that movies are not performing well in the 2020s, this is likely due to the incomplete dataset for the decade. However, based on average revenue trends, the total revenue for the 2020s is expected to surpass that of all previous decades.
 
-### Top 5 movies of all time 
+### Top 5 Movies of All Time 
 - To rank all movies, we'll first copy the `name`, `budget`, and `revenue` columns into a new sheet. Since there are multiple movies with the same names, we cannot use a pivot table to summarize the data
 - Next, we'll create a new column called `profit`. In cell D2, enter the formula `=C2-B2`, then double-click the blue button to autofill the rest of the column.
 - Finally, we'll apply a filter to the entire sheet and rank the movies based on total revenue and total profit.
@@ -210,6 +210,34 @@ The movie names from the movie sheet are in the leftmost column, so the VLOOKUP 
 - The top three movies also hold the record for the highest revenue from the 1990s to the 2010s.
 - Similarly, the top five movies are consistent when ranked by profit.
 - Despite their high budgets, these blockbuster movies yield massive profits.
+
+### Top 5 Movies by Total Scores and Number of Votes
+We'll replicate the process from previous sections by copying and pasting the relevant columns, sorting them based on scores and votes using filters, and then selecting the desired rows and columns to create a chart.
+
+| Total scores                           | Total votes                       |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Top 5 Movies by IMDb score](https://github.com/ksadangrit/movies/assets/156267785/7eee09c4-c124-447b-8bc9-b04afdfda736)| ![Top 5 Movies by Number of Votes](https://github.com/ksadangrit/movies/assets/156267785/b83984a9-8dd3-43de-a336-80634712c120)|
+
+**Findings**
+- The Shawshank Redemption leads with the highest number of votes and the highest scores, followed closely by The Dark Knight.
+- While Pulp Fiction, The Lord of the Rings: The Return of the King, and Schindler's List share a rating of 8.9, only Pulp Fiction ranks in the top 5 most voted.
+- Each movie in the top 5 most voted received over 1.9 million votes, and three out of five also received the highest ratings. This suggests that these movies left a significant positive impression on the audience, prompting them to take the time to vote.
+
+### Top 5 Companies by Average Revenue and Average Profit
+- Highlight the `company`, `budget`, and `revenue` columns in the `movies` sheet, then select "Insert" --> "Pivot table" into a new sheet.
+- In the new sheet, drag `company` to rows and `revenue` to values.
+- Add a calculated field under values with the formula `=AVERAGE('revenue')-AVERAGE('budget')` to find the average profit.
+- Apply filter to sort the company based on revenue and profit.
+- Highlight the top 5 rows and insert a chart.
+
+| Average Revenue                      | Average Profit                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Top 5 Companies by Average Revenue](https://github.com/ksadangrit/movies/assets/156267785/f845c466-73d1-4042-bfee-2c26dc156393)| ![Top 5 companies by Average Profit (1)](https://github.com/ksadangrit/movies/assets/156267785/cec65cd6-bb51-4208-bb40-21a8eb11ec5f)|
+
+**Finding**
+- Marvel Studios tops both lists as the company with the highest profits and gross earnings, followed by Illumination Entertainment, Fairview Entertainment, and B24.
+- Chris Morgan ranks fifth for profits but doesn't appear on the list for average revenue. This disparity could be due to significant differences in budget and revenue for their movies.
+- Avi Arad Productions' movies outperform Chris Morgan's in terms of gross revenue.
 
 ### Month
 #### Extracting the month from the `released` column

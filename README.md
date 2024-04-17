@@ -163,28 +163,75 @@ We'll determine the mode of all values in the `rating` column by following these
 The result shows that "R" is the most common rating and is the mode from the `rating` column. We'll replace all the blank cells in this column with "R" using the Find and Replace option, the same way we did earlier.
 
 ## Calculations and Analysing
+In this phase of the project, I'll primarily utilize pivot tables for data manipulation and will complement the analysis with charts and graphs to visually present the findings. Any significant insights will be discussed as necessary.
+
 ### Decades
 #### Creating a decade column
 - We’ll add a decade column next to `year` by right-clicking on the 'year' column.
 - Select 'Insert 1 column right.'
 - Name the new column 'Decade' in cell E2.
-- Enter the formula '=INT(D2/10)*10' in cell E2.
+- Enter the formula '=TEXT(INT(D2/10)*10, "0") & "s"' in cell E2.
 - Double-click on the blue filter button to apply the formula to the entire column.
 
 #### Revenues by decade
 We'll create a pivot table to summarize average revenue, total revenue, minimum, and maximum revenue by decade, taking into account that the 2020s decade only includes the year 2020.
-![Screen Shot 2024-04-15 at 4 45 37 PM](https://github.com/ksadangrit/movies/assets/156267785/88d96289-1453-47aa-a934-5a4756e20c15)
-- Highlight all the columns.
+
+![Screen Shot 2024-04-17 at 10 31 56 AM](https://github.com/ksadangrit/movies/assets/156267785/c7cd5723-287d-4aaa-ab68-8edd933d7b5e)
+
+- Highlight all the columns in the movies sheet.
 - Select 'Insert' → 'Pivot table' → 'New sheet'.
 - Drag ‘decade' into the 'Rows' section. Under 'Summarized by', select 'COUNT'.
 - Drag 'name' into the 'Values' section four times. For each instance, select 'AVERAGE', 'SUM', 'MIN', and 'MAX' under 'Summarized by'.
 - Apply conditional formatting to the 'Total revenue' and 'MAX of revenue' columns. Choose a gradient from white to deep orange, with deeper colors indicating higher values, to visually highlight and differentiate the range of values.
 
 #### Finding movies with highest revenue for each decade
-The movie names from the movie sheet are in the leftmost column, so the VLOOKUP function can't be used. Instead, we’ll utilize INDEX and MATCH functions for this task.
+The movie names from the movie sheet are in the leftmost column, so the VLOOKUP function can't be used. Instead, we’ll utilize `INDEX` and `MATCH` functions for this task.
 - Input the formula `=INDEX(movies!A:A, MATCH(F2, movies!N:N, 0))` in cell F2.
 - Double-click the blue button to autofill the remaining cells.
-![Screen Shot 2024-04-15 at 5 03 22 PM](https://github.com/ksadangrit/movies/assets/156267785/ecf99fc4-12c8-4c39-b92e-54161f5b0ebe)
+
+![Screen Shot 2024-04-17 at 10 35 30 AM](https://github.com/ksadangrit/movies/assets/156267785/2fcf765b-0022-40db-bd81-03099d2f71c1)
+
+**Findings**
+
+- The average revenue for a movie is $77 million, and this figure has consistently increased from the 1980s to the 2020s.
+- Notable top-grossing films include "E.T.," "Titanic," "Avatar," "Avengers: Endgame," and "The Eight Hundred" for the 1980s, 1990s, 2000s, 2010s, and 2020s, respectively.
+- While it may appear that movies are not performing well in the 2020s, this is likely due to the incomplete dataset for the decade. However, based on average revenue trends, the total revenue for the 2020s is expected to surpass that of all previous decades.
+
+### Top 5 movies of all time 
+- To rank all movies, we'll first copy the `name`, `budget`, and `revenue` columns into a new sheet. Since there are multiple movies with the same names, we cannot use a pivot table to summarize the data
+- Next, we'll create a new column called `profit`. In cell D2, enter the formula `=C2-B2`, then double-click the blue button to autofill the rest of the column.
+- Finally, we'll apply a filter to the entire sheet and rank the movies based on total revenue and total profit.
+- Highlight the top 5 rows of movies and insert a bar chart.
+
+![Top 5 Movies by Revenue ](https://github.com/ksadangrit/movies/assets/156267785/f4181f31-4f0b-45b6-a55a-74cc7c8d4ff4)
+
+**Findings**
+- Avatar leads as the highest-grossing movie of all time, followed by Avengers: Endgame, Titanic, Star Wars, and Avengers: Infinity War.
+- The top three movies also hold the record for the highest revenue from the 1990s to the 2010s.
+- Similarly, the top five movies are consistent when ranked by profit.
+- Despite their high budgets, these blockbuster movies yield massive profits.
+
+### Month
+#### Extracting the month from the `released` column
+We'll extract the month each movie was released using the `LEFT` and `FIND` functions by following these steps:
+- In cell Q2, enter the formula `=LEFT(F2, FIND(" ", F2) - 1)`. This formula finds the month name, which is the leftmost text before the first space.
+- Pivot table will be created to summarize the month and number of movies released during each month.
+- There are 9 movies with missing month details, accounting for about 0.1% of all data.
+- We'll disregard these missing values because even if we replace them with the mode, which is October, the result won’t change.
+- To arrange the months from January to December for charting purposes, I'll copy and paste the summarized values and adjust the order accordingly. 
+- Additionally, I’ll apply a color scale to both the average revenue and total movies columns to better highlight their performances.
+
+![Screen Shot 2024-04-17 at 12 43 05 PM](https://github.com/ksadangrit/movies/assets/156267785/9a65d7ca-33fa-4fdf-bd42-8a6974cc2cfb)
+
+**Findings**
+
+- Movies were released most frequently in October, followed by August and March.
+- On average, movies earned the highest revenue during May to July and November to December.
+- There is a notable contrast between the total number of movies released in a month and the gross revenue. This suggests that movies may tend to earn more when there are fewer competitors.
+- December is the second highest-grossing month. This could be attributed to holiday movies released during December, which tend to generate higher revenue compared to other months.
+
+
+
 
 
 

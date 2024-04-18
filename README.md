@@ -174,7 +174,7 @@ In this phase of the project, I'll primarily utilize pivot tables for data manip
 - Double-click on the blue filter button to apply the formula to the entire column.
 
 #### Revenues by decade
-We'll create a pivot table to summarize average revenue, total revenue, minimum, and maximum revenue by decade, taking into account that the 2020s decade only includes the year 2020.
+We'll create a pivot table to summarise average revenue, total revenue, minimum, and maximum revenue by decade, taking into account that the 2020s decade only includes the year 2020.
 
 ![Screen Shot 2024-04-17 at 10 31 56 AM](https://github.com/ksadangrit/movies/assets/156267785/c7cd5723-287d-4aaa-ab68-8edd933d7b5e)
 
@@ -198,7 +198,7 @@ The movie names from the movie sheet are in the leftmost column, so the VLOOKUP 
 - While it may appear that movies are not performing well in the 2020s, this is likely due to the incomplete dataset for the decade. However, based on average revenue trends, the total revenue for the 2020s is expected to surpass that of all previous decades.
 
 ### Top 5 Movies of All Time 
-- To rank all movies, we'll first copy the `name`, `budget`, and `revenue` columns into a new sheet. Since there are multiple movies with the same names, we cannot use a pivot table to summarize the data
+- To rank all movies, we'll first copy the `name`, `budget`, and `revenue` columns into a new sheet. Since there are multiple movies with the same names, we cannot use a pivot table to summarise the data
 - Next, we'll create a new column called `profit`. In cell D2, enter the formula `=C2-B2`, then double-click the blue button to autofill the rest of the column.
 - Finally, we'll apply a filter to the entire sheet and rank the movies based on total revenue and total profit.
 - Highlight the top 5 rows of movies and insert a bar chart.
@@ -211,6 +211,7 @@ The movie names from the movie sheet are in the leftmost column, so the VLOOKUP 
 - Similarly, the top five movies are consistent when ranked by profit.
 - Despite their high budgets, these blockbuster movies yield massive profits.
 
+### Scores and Votes
 ### Top 5 Movies by Total Scores and Number of Votes
 We'll replicate the process from previous sections by copying and pasting the relevant columns, sorting them based on scores and votes using filters, and then selecting the desired rows and columns to create a chart.
 
@@ -223,6 +224,7 @@ We'll replicate the process from previous sections by copying and pasting the re
 - While Pulp Fiction, The Lord of the Rings: The Return of the King, and Schindler's List share a rating of 8.9, only Pulp Fiction ranks in the top 5 most voted.
 - Each movie in the top 5 most voted received over 1.9 million votes, and three out of five also received the highest ratings. This suggests that these movies left a significant positive impression on the audience, prompting them to take the time to vote.
 
+### Companies
 ### Top 5 Companies by Average Revenue and Average Profit
 - Highlight the `company`, `budget`, and `revenue` columns in the `movies` sheet, then select "Insert" --> "Pivot table" into a new sheet.
 - In the new sheet, drag `company` to rows and `revenue` to values.
@@ -239,10 +241,11 @@ We'll replicate the process from previous sections by copying and pasting the re
 - Chris Morgan ranks fifth for profits but doesn't appear on the list for average revenue. This disparity could be due to significant differences in budget and revenue for their movies.
 - Avi Arad Productions' movies outperform Chris Morgan's in terms of gross revenue.
 
+### Actors
 ### Top 5 Actors by Total Movies and Total Revenue
 I chose to compare the top 5 actors based on both the total number of movies they've starred in and the cumulative revenues of those movies. This comparison aims to explore whether actors' longevity in the industry correlates with the success of their movies or if other factors play a more significant role in determining movie success. 
 
-We use a pivot table to summarize the total number of movies and total revenue, sorting them accordingly before inserting a chart.
+We use a pivot table to summarise the total number of movies and total revenue, sorting them accordingly before inserting a chart.
 
 | Total Movies                      | Total Revenue                  |
 | ------------------------------------- | ----------------------------------------------- |
@@ -255,6 +258,7 @@ We use a pivot table to summarize the total number of movies and total revenue, 
 - Conversely, Robert Downey Jr. generated the highest total revenues, while Will Smith ranks fifth. This underscores their box office success despite fewer movie appearances.
 - All these actors have lengthy careers in the industry, suggesting a correlation between longevity and movie success.
 
+### Directors
 ### Top 5 Directors by Total Movies and Total Revenue
 Similarly to actors, we'll rank top 5 directors based on the number of movies and total revenue. Pivot table is still used for summatization and calculation.
 
@@ -270,14 +274,30 @@ Similarly to actors, we'll rank top 5 directors based on the number of movies an
 - While not as significant as that of actors, their prominence likely contributes to the films' success.
 - However, directing numerous films doesn't necessarily indicate popularity, as directors typically initiate projects and secure budgets, unlike actors who are hired.
 
-### Month
+### Countries
+### Top 5 Countries by Total Movies and Median Revenue
+For this section, we'll utilize pivot tables to summarise the total number of movies, percentage, and median revenue. 
+
+Instead of average revenue, we'll focus on median revenue to mitigate the skewing effect caused by the dominance of the USA in the movie industry, as observed in previous sections where top-grossing movies primarily originated from the USA.
+
+| Total Movies                      | Median Revenue                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![chart (1)](https://github.com/ksadangrit/movies/assets/156267785/2d28db99-3154-42da-bd3d-b62db3242cb6)| ![Top 5 Countries by Median Revenue (1)](https://github.com/ksadangrit/movies/assets/156267785/75f63692-9484-4135-8e58-78127c59a84a)|
+
+**Findings**
+- The USA leads with over 5,000 movies, comprising over 70% of all films, followed by the UK at 11%, and France, Canada, and Germany.
+- However, each country in the top 5 for median revenue represents less than 1.5% of all movies released.
+- This discrepancy may be due to the varied performance of movies released by countries like the USA and the UK.
+- Non-English speaking countries dominate the top spots for median revenue, indicating international success.
+
+### Months
 #### Extracting the month from the `released` column
 We'll extract the month each movie was released using the `LEFT` and `FIND` functions by following these steps:
 - In cell Q2, enter the formula `=LEFT(F2, FIND(" ", F2) - 1)`. This formula finds the month name, which is the leftmost text before the first space.
-- Pivot table will be created to summarize the month and number of movies released during each month.
+- Pivot table will be created to summarise the month and number of movies released during each month.
 - There are 9 movies with missing month details, accounting for about 0.1% of all data.
 - We'll disregard these missing values because even if we replace them with the mode, which is October, the result won’t change.
-- To arrange the months from January to December for charting purposes, I'll copy and paste the summarized values and adjust the order accordingly. 
+- To arrange the months from January to December for charting purposes, I'll copy and paste the summarised values and adjust the order accordingly. 
 - Additionally, I’ll apply a color scale to both the average revenue and total movies columns to better highlight their performances.
 
 ![Screen Shot 2024-04-17 at 12 43 05 PM](https://github.com/ksadangrit/movies/assets/156267785/9a65d7ca-33fa-4fdf-bd42-8a6974cc2cfb)
@@ -289,9 +309,44 @@ We'll extract the month each movie was released using the `LEFT` and `FIND` func
 - There is a notable contrast between the total number of movies released in a month and the gross revenue. This suggests that movies may tend to earn more when there are fewer competitors.
 - December is the second highest-grossing month. This could be attributed to holiday movies released during December, which tend to generate higher revenue compared to other months.
 
+### Genres
+### Rank Genres by Average Profit
+We'll still utilise pivot table to summarise the average profit generated for each genre and then insert a bar chart to visualise the result.
+
+![Average Profit by Genre](https://github.com/ksadangrit/movies/assets/156267785/fe4fd988-9dca-4731-b36e-5b5730a9c97d)
+
+**Findings**
+
+- Animation leads as the genre with the highest average profit, surpassing $200 million, closely followed by family.
+- Action, adventure, and mystery genres also demonstrate strong commercial performance.
+- Conversely, music, musical, and sports genres tend to underperform financially, with movies in these genres more likely to incur losses.
+
+### Number of Movies by Genre and Year
+We'll insert a pivot table, with genre in Rows, year in Columns, and Name in Values summarized by COUNTA. Then, we'll visualize the trends using a line chart.
+
+![Total Number of Movies by Genre](https://github.com/ksadangrit/movies/assets/156267785/9f592b36-8b42-49c6-993f-26cd310d2c79)
+
+**Findings**
+
+- Comedy, action, and drama movies experienced an initial surge starting in the early 1980s, continuing until the late 1990s with a slight decline.
+- Comedy movies dominated production until the 2010s when the action genre gained popularity, followed by drama.
+- Horror movies saw a notable increase, particularly in the latter part of the 2010s.
+- Other genres typically had fewer than 25 movies produced per year, indicating lower popularity compared to comedy, action, drama, and horror genres.
 
 
 
+### Ratings
+We'll compare movie counts and average revenues across different ratings using pivot tables and visualize the results with pie and bar charts.
+
+| Total Movies                      | Average Revenue                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Number of movies by rating  (1)](https://github.com/ksadangrit/movies/assets/156267785/6968c6c2-2f23-4f23-9042-0c38025a41c3)|![Average Revenue vs  Rating](https://github.com/ksadangrit/movies/assets/156267785/f5f08ca1-86d1-44e4-81f2-259dd45ddfa2)|
+
+**Findings**
+
+- R is the most common rating, followed by PG and PG-13, collectively representing over 93% of all movies.
+- This indicates a trend toward broader audience appeal rather than restricting content to adult-only audiences.
+- Movies with ratings like G, PG-13, and PG tend to generate higher revenues, possibly due to their accessibility to wider audience demographics, including families with children or teenagers.
 
 
 

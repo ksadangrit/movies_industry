@@ -46,7 +46,7 @@ The data type was confirmed by using the `=ISNUMBER()` and `=ISTEXT()` functions
 
 ### Objectives
 1. Analyze historical movie performance trends and identify popular trends over time.
-2. Investigate the factors contributing to the popularity of certain movies, including the roles of directors, actors, and genres.
+2. Investigate the factors contributing to the popularity of movies, including the roles of directors, actors, and genres.
 3. Explore the evolution of genres across time periods and assess their implications for the movie industry.
 4. Compare movie performance metrics across various countries to discern regional preferences and trends.
 
@@ -234,10 +234,41 @@ We'll replicate the process from previous sections by copying and pasting the re
 | ------------------------------------- | ----------------------------------------------- |
 | ![Top 5 Companies by Average Revenue](https://github.com/ksadangrit/movies/assets/156267785/f845c466-73d1-4042-bfee-2c26dc156393)| ![Top 5 companies by Average Profit (1)](https://github.com/ksadangrit/movies/assets/156267785/cec65cd6-bb51-4208-bb40-21a8eb11ec5f)|
 
-**Finding**
+**Findings**
 - Marvel Studios tops both lists as the company with the highest profits and gross earnings, followed by Illumination Entertainment, Fairview Entertainment, and B24.
 - Chris Morgan ranks fifth for profits but doesn't appear on the list for average revenue. This disparity could be due to significant differences in budget and revenue for their movies.
 - Avi Arad Productions' movies outperform Chris Morgan's in terms of gross revenue.
+
+### Top 5 Actors by Total Movies and Total Revenue
+I chose to compare the top 5 actors based on both the total number of movies they've starred in and the cumulative revenues of those movies. This comparison aims to explore whether actors' longevity in the industry correlates with the success of their movies or if other factors play a more significant role in determining movie success. 
+
+We use a pivot table to summarize the total number of movies and total revenue, sorting them accordingly before inserting a chart.
+
+| Total Movies                      | Total Revenue                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Top 5 Actors based on Number of Movies](https://github.com/ksadangrit/movies/assets/156267785/4b5ea5b9-1083-4b20-afbb-43536152a74e)| ![Top 5 Actors based on Movie Revenues](https://github.com/ksadangrit/movies/assets/156267785/166c6e98-13f3-4f68-bdc8-fff244cd41a8)|
+
+**Findings**
+
+- Tom Hanks and Tom Cruise are the only two actors who appear on both lists, indicating their enduring popularity and significant impact on movie revenues.
+- Nicolas Cage has the highest number of movie appearances, and Denzel Washington ranks fourth in terms of appearances. However, their overall movie revenues do not place them in the top 5.
+- Conversely, Robert Downey Jr. generated the highest total revenues, while Will Smith ranks fifth. This underscores their box office success despite fewer movie appearances.
+- All these actors have lengthy careers in the industry, suggesting a correlation between longevity and movie success.
+
+### Top 5 Directors by Total Movies and Total Revenue
+Similarly to actors, we'll rank top 5 directors based on the number of movies and total revenue. Pivot table is still used for summatization and calculation.
+
+| Total Movies                      | Total Revenue                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Top 5 Directors by Total Movies](https://github.com/ksadangrit/movies/assets/156267785/dffa57f0-282a-44b5-8058-55ce1582ae1b)| ![Top 5 Directors by Total Revenue](https://github.com/ksadangrit/movies/assets/156267785/2be0084f-7cd1-4d57-9d80-fccc66f7d1c2) |
+
+
+**Findings**
+- Steven Spielberg is the only director who appears on both lists, ranking first for total revenue.
+- None of the other top 5 directors based on total revenue are in the top 5 for total number of movies, and vice versa.
+- The influence of directors on film success is evident, with all top 5 directors being well-known and experienced.
+- While not as significant as that of actors, their prominence likely contributes to the films' success.
+- However, directing numerous films doesn't necessarily indicate popularity, as directors typically initiate projects and secure budgets, unlike actors who are hired.
 
 ### Month
 #### Extracting the month from the `released` column

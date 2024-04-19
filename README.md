@@ -4,11 +4,31 @@
 _Photo by Tima Miroshnichenko from [Pexels](https://www.pexels.com/photo/cartoon-movie-showing-on-theater-screen-7991579/)_
 
 ## Introduction
-This case study aims to explore the dynamics of the film industry and the evolving trends across different decades. As a movie enthusiast, I find it captivating to delve into the timeless classics of each genre and understand the preferences of moviegoers. Furthermore, I anticipate that this study will offer valuable insights into the movie business, shedding light on the factors contributing to the success of films in terms of both profitability and audience reception. Such insights will undoubtedly benefit aspiring filmmakers, actors, and production companies.
+This case study aims to explore the dynamics of the film industry and the evolving trends across different decades and years. As a movie enthusiast, I find it captivating to delve into the timeless classics of each genre and understand the preferences of moviegoers. Furthermore, I anticipate that this study will offer valuable insights into the movie business, shedding light on the factors contributing to the success of films in terms of both profitability and audience reception. Such insights will undoubtedly benefit aspiring filmmakers, actors, and production companies.
 
 This dataset is scrapped from IMDb by Daniel Grijalva and is available to download on [Kaggle](https://www.kaggle.com/datasets/danielgrijalvas/movies). The dataset contains information about movies from between 1986 - 2020.
 
 Click here for the [license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+### Questions
+1. What are the highest-earning movies of all time and in each decade?
+2. Have genre popularity shifted across different decades?
+3. How does the origin of movies affect their performance?
+4. Which factors strongly influence movie performance?
+5. Is there a positive correlation between budgets and revenues?
+
+
+### Objectives
+1. Analyze historical movie performance trends and identify popular trends over time.
+2. Investigate the factors contributing to the popularity and performance of movies, including the roles of directors, actors, and genres.
+3. Explore the evolution of genres across time periods and assess their implications for the movie industry.
+4. Compare movie performance metrics across various countries to discern regional preferences and trends.
+
+### Analysis Workflow
+* Importing data
+* Cleaning the data
+* Calculations, Analysis, and Visualizations
+* Key Findings and Recommendations
 
 ## Importing data
 Download the csv file for the movie data from Kaggle
@@ -35,20 +55,6 @@ Belows are the list of all columns:
 * `year` (num): Year of release
 
 The data type was confirmed by using the `=ISNUMBER()` and `=ISTEXT()` functions.
-
-### Questions
-1. What are the highest-earning movies ever, and how has their performance changed over time?
-2. Have there been any shifts in genre popularity across different decades, and why might these changes have occurred?
-3. Do certain types of movies tend to get better ratings from viewers, and how does this relate to their earnings?
-4. How do different movie companies do in terms of earnings, and are there any clear trends?
-5. Is there a connection between how much money is spent on marketing and how much a movie earns?
-6. Do the writers and actors in movies affect viewer ratings and earnings?
-
-### Objectives
-1. Analyze historical movie performance trends and identify popular trends over time.
-2. Investigate the factors contributing to the popularity of movies, including the roles of directors, actors, and genres.
-3. Explore the evolution of genres across time periods and assess their implications for the movie industry.
-4. Compare movie performance metrics across various countries to discern regional preferences and trends.
 
 ## Cleaning the data
 - Freeze the header row and make it bold to make it easier to examine the data.
@@ -162,8 +168,8 @@ We'll determine the mode of all values in the `rating` column by following these
 
 The result shows that "R" is the most common rating and is the mode from the `rating` column. We'll replace all the blank cells in this column with "R" using the Find and Replace option, the same way we did earlier.
 
-## Calculations and Analysing
-In this phase of the project, I'll primarily utilize pivot tables for data manipulation and will complement the analysis with charts and graphs to visually present the findings. Any significant insights will be discussed as necessary.
+## Calculations, Analysis, and Visualizations
+In this phase of the project, I'll primarily utilize pivot tables for data manipulation and will complement the analysis with charts and graphs to visually present the findings. Significant insights will be highlighted and discussed.
 
 ### Decades
 #### Creating a decade column
@@ -264,8 +270,7 @@ Similarly to actors, we'll rank top 5 directors based on the number of movies an
 
 | Total Movies                      | Total Revenue                  |
 | ------------------------------------- | ----------------------------------------------- |
-| ![Top 5 Directors by Total Movies](https://github.com/ksadangrit/movies/assets/156267785/dffa57f0-282a-44b5-8058-55ce1582ae1b)| ![Top 5 Directors by Total Revenue](https://github.com/ksadangrit/movies/assets/156267785/2be0084f-7cd1-4d57-9d80-fccc66f7d1c2) |
-
+|![Top 5 Directors by Total Revenue (1)](https://github.com/ksadangrit/movies/assets/156267785/8015a69f-4600-4ebc-bd11-95e2512480a0) | ![Top 5 Directors by Total Movies (1)](https://github.com/ksadangrit/movies/assets/156267785/657d4256-47ca-4028-90af-aec491a0f0d5)|
 
 **Findings**
 - Steven Spielberg is the only director who appears on both lists, ranking first for total revenue.
@@ -274,6 +279,20 @@ Similarly to actors, we'll rank top 5 directors based on the number of movies an
 - While not as significant as that of actors, their prominence likely contributes to the films' success.
 - However, directing numerous films doesn't necessarily indicate popularity, as directors typically initiate projects and secure budgets, unlike actors who are hired.
 
+### Writers
+### Top 5 Writers by Total Movies and Total Revenue
+We'll repeat the process from previous section to rank top 5 writer using the `writer`, `name` and `revenue` columns.
+
+| Total Movies                      | Total Revenue                  |
+| ------------------------------------- | ----------------------------------------------- |
+| ![Top 5 Writers by Total Movies](https://github.com/ksadangrit/movies/assets/156267785/928f7929-3a38-453e-ba37-61f2d679605e)| ![Top 5 Writer by Total Revenue](https://github.com/ksadangrit/movies/assets/156267785/7a28b3ba-814e-4657-87e4-a4d7dd1886fb)|
+
+**Findings**
+
+- In terms of total movies, the writer with the most is Woody Allen, followed by Stephen King.
+- On the other hand, the movies written by Christopher Markus generated the most total revenue, followed by James Cameron's.
+- These two top 5 lists do not share the same writers. This suggests that, compared to directors and actors, writers do not strongly influence the success of films. It also suggests that other factors play bigger roles in whether a movie is going to be successful.
+  
 ### Countries
 ### Top 5 Countries by Total Movies and Median Revenue
 For this section, we'll utilize pivot tables to summarise the total number of movies, percentage, and median revenue. 
@@ -380,12 +399,27 @@ For this section, we'll copy and paste the `movie`, `budget` and `revenue` colum
 - While there are some movies with high budgets that did not perform well at the box office, there are no instances of movies with revenues between $2-3 billion having budgets lower than $200 million.
 - The scatterplot suggests a positive correlation between movie budgets and revenues, indicating that higher budget films tend to generate higher revenues.
 
+### IMDb scores vs Revenue
+We'll repeat the process from the previous scatterplot, this time analyzing the relationship between IMDb scores and revenue.
+
+![IMDb Scores vs Revenue](https://github.com/ksadangrit/movies/assets/156267785/e941cf33-20cb-4a33-8a49-539a841e1cf5)
+
+**Findings**
+
+- There is a range of movies with revenue under $500k that have IMDb scores ranging from 2 to over 9.
+- Except for one outlier, all movies that generate over $1 billion score above 6 on IMDb.
+- There exists a positive correlation between movie revenue and IMDb scores, particularly evident when movies earn over $1 billion, indicating that financially successful movies tend to receive positive reviews from audiences.
+
 ### Number of Votes vs IMDb scores
 We'll repeat the process from the previous scatterplot, this time analyzing the relationship between votes, and IMDb scores.
 
 ![Votes vs IMDb scores](https://github.com/ksadangrit/movies/assets/156267785/1bbfc775-3d74-412e-aac7-fd45dabf253d)
 
 **Findings**
+
+- Most movies receive fewer than 500,000 votes.
+- Higher-voted movies tend to have narrower score ranges, typically around 8 or higher for those with over 1 million votes.
+- The data suggests that movies with extensive audience engagement tend to receive more positive ratings.
 
 ### Runtime vs IMDb scores
 We'll follow the same steps as before to analyze the correlation between movie runtime and IMDb scores using a scatterplot.
@@ -394,10 +428,27 @@ We'll follow the same steps as before to analyze the correlation between movie r
 
 **Findings**
 
+- Movies with runtimes under 150 minutes exhibit a broad range of IMDb scores, spanning from around 2 to over 8.
+- Conversely, films with runtimes exceeding 180 minutes consistently receive scores above 6, suggesting a positive correlation between longer runtimes and higher IMDb ratings.
 
+## Key Findings and Recommendations
 
+### Summary of Key Findings
+- Average budget and revenue have increased over decades and years.
+- Revenue has consistently risen in each decade from the 1980s to the 2010s.
+- Titanic, Avatar, and Avengers: Endgame are top-grossing movies for their respective decades and all-time.
+- Comedy, Action, and Drama are popular genres, with Comedy's popularity declining after the 2000s.
+- Animation and Family genres yield the highest profits, while niche genres like Sport and Western tend to suffer losses.
+- Positive correlation exists between IMDb scores and votes, revenue, and runtime, particularly with higher values.
+- Family-friendly ratings (PG, G, PG-13) are common and tend to perform better at the box office.
+- Actors have more influence on film success than directors, evidenced by correlations between top actors and movie revenue.
+- Writers have minimal impact on movie success.
+- Most movies come from English-speaking countries, with the USA dominating. However, countries producing fewer movies see higher median revenue.
+- Movies released in June and December generate the most revenue, suggesting fewer releases at those times lead to better performance.
+- Companies producing movies with the highest average revenue also boast the highest profits.
+- Overall, successful films positively impact the popularity of genres, actors, directors, writers, and company performance, evidenced by the rise of action and superhero movies, as well as animations.
 
-
-
-
-
+### Recommendations
+- Filmmakers and companies should carefully allocate budgets, prioritize profitable genres, and manage costs in niche markets.
+- To maximize revenue potential, choose release dates when competition is low to enhance box office performance.
+- Further study could focus on analyzing audience demographics and preferences to better understand the factors driving film success and tailor content accordingly.

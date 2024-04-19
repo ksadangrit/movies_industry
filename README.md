@@ -333,7 +333,17 @@ We'll insert a pivot table, with genre in Rows, year in Columns, and Name in Val
 - Horror movies saw a notable increase, particularly in the latter part of the 2010s.
 - Other genres typically had fewer than 25 movies produced per year, indicating lower popularity compared to comedy, action, drama, and horror genres.
 
+### Genres vs Scores
+We'll analyze the relationship between IMDb scores, total movie counts, and votes to identify any correlations. Using pivot tables, we'll calculate sum and average values for comparison.
 
+![Screen Shot 2024-04-19 at 12 01 23 AM](https://github.com/ksadangrit/movies/assets/156267785/feb3706d-e796-4e4a-8d9a-57d72d776902)
+
+**Findings**
+
+- Music and musical genres have the highest average scores at 8.1 and 7.2, respectively.
+- Despite having only one movie in the music genre, it garnered 12,000 votes, indicating its popularity.
+- Genres like mystery, action, adventure, and animation received over 100,000 votes each, showing their widespread appeal.
+- Most genres received scores above 6, but horror, sport, thriller, and western received comparatively lower ratings.
 
 ### Ratings
 We'll compare movie counts and average revenues across different ratings using pivot tables and visualize the results with pie and bar charts.
@@ -347,6 +357,46 @@ We'll compare movie counts and average revenues across different ratings using p
 - R is the most common rating, followed by PG and PG-13, collectively representing over 93% of all movies.
 - This indicates a trend toward broader audience appeal rather than restricting content to adult-only audiences.
 - Movies with ratings like G, PG-13, and PG tend to generate higher revenues, possibly due to their accessibility to wider audience demographics, including families with children or teenagers.
+
+### Average Budget vs Revenue over the Years
+We'll compare the average budget and revenue over the years by using pivot table to summarize the data then inserting a line chart to illustrate the results.
+
+![Average Budget vs Revenue by Year](https://github.com/ksadangrit/movies/assets/156267785/59344866-f799-4fff-a7e2-a4fa84126654)
+
+**Findings**
+
+- On average, movie profits have surged over the years, despite a gradual increase in movie budgets.
+- Average revenue has also grown steadily since the 2000s, even though there hasn't been a significant increase in average budgets.
+- This suggests a positive correlation between budget and revenue.
+
+### Budget vs Revenue
+For this section, we'll copy and paste the `movie`, `budget` and `revenue` columns into a new sheet. We'll highlight those column and insert a scatterplot to examine any correlation between the two.
+
+![Budget vs Revnue](https://github.com/ksadangrit/movies/assets/156267785/1af1b7bb-d291-4f0f-8223-851c47fbab5d)
+
+**Findings**
+
+- A cluster of movies with budgets under $150 million and revenues under $1 million dollar is evident.
+- While there are some movies with high budgets that did not perform well at the box office, there are no instances of movies with revenues between $2-3 billion having budgets lower than $200 million.
+- The scatterplot suggests a positive correlation between movie budgets and revenues, indicating that higher budget films tend to generate higher revenues.
+
+### Number of Votes vs IMDb scores
+We'll repeat the process from the previous scatterplot, this time analyzing the relationship between votes, and IMDb scores.
+
+![Votes vs IMDb scores](https://github.com/ksadangrit/movies/assets/156267785/1bbfc775-3d74-412e-aac7-fd45dabf253d)
+
+**Findings**
+
+### Runtime vs IMDb scores
+We'll follow the same steps as before to analyze the correlation between movie runtime and IMDb scores using a scatterplot.
+
+![Runtime vs IMDb score](https://github.com/ksadangrit/movies/assets/156267785/9c07012d-25da-4c51-ab96-1a5f4aa4f9fc)
+
+**Findings**
+
+
+
+
 
 
 

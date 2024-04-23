@@ -6,7 +6,7 @@ _Photo by Tima Miroshnichenko from [Pexels](https://www.pexels.com/photo/cartoon
 ## Introduction
 This case study aims to explore the dynamics of the film industry and the evolving trends across different decades and years. As a movie enthusiast, I find it captivating to delve into the timeless classics of each genre and understand the preferences of moviegoers. Furthermore, I anticipate that this study will offer valuable insights into the movie business, shedding light on the factors contributing to the success of films in terms of both profitability and audience reception. Such insights will undoubtedly benefit aspiring filmmakers, actors, and production companies.
 
-This dataset is scrapped from IMDb by Daniel Grijalva and is available to download on [Kaggle](https://www.kaggle.com/datasets/danielgrijalvas/movies). The dataset contains information about movies from between 1986 - 2020.
+This dataset is scrapped from IMDb by Daniel Grijalva and is available to download on [Kaggle](https://www.kaggle.com/datasets/danielgrijalvas/movies). The dataset contains information about movies from between 1980 - 2020.
 
 Click here for the [license](https://creativecommons.org/publicdomain/zero/1.0/).
 

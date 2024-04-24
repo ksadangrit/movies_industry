@@ -10,6 +10,8 @@ This dataset is scrapped from IMDb by Daniel Grijalva and is available to downlo
 
 Click here for the [license](https://creativecommons.org/publicdomain/zero/1.0/).
 
+**Tools:** Google Sheets for cleaning, analysis and visualisations. Tableau for Interactive dashboard.
+
 ### Questions
 1. What are the highest-earning movies of all time and in each decade?
 2. Have genre popularity shifted across different decades?
@@ -452,3 +454,12 @@ We'll follow the same steps as before to analyze the correlation between movie r
 - Filmmakers and companies should carefully allocate budgets, prioritize profitable genres, and manage costs in niche markets.
 - To maximize revenue potential, choose release dates when competition is low to enhance box office performance.
 - Further study could focus on analyzing audience demographics and preferences to better understand the factors driving film success and tailor content accordingly.
+
+### Interactive Dashboard
+I have also created an interactive dashboard to provide deeper insights into financial performance and audience reception, which can be filtered by genres and decades. To visit the Tableau page, click [here](https://public.tableau.com/views/FilmIndustry_17137504642190/Dashboard1?:language=en-GB&:sid=&:display_count=n&:origin=viz_share_link). 
+
+<div class='tableauPlaceholder' id='viz1713920516664' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FilmIndustry_17137504642190&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FilmIndustry_17137504642190&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FilmIndustry_17137504642190&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-GB' /></object></div> 
+
+Detailed steps on how to create a dashboard are provided in the tableau_dashboard.md file within the same repository.
+
+
